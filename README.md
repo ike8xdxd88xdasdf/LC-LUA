@@ -22,9 +22,11 @@ Recommended Xerath config:
 
 How to use: 
 Holding spacebar will shoot W and E 
+Press Q once and script will auto aim and release Q
 Press R to enter R mode, then hold T when you want to shoot
 Disable in LolCore - Main: Orbwalker Clicking, Prediction, Evade 
                    - Hero: Everything
 
 Be aware: 
 Right clicking to do manual movement can counteract evade movement
+When Q can't resolve a good hit, it won't shoot. Don't instantly decrease hitchance
