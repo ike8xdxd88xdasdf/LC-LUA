@@ -18,7 +18,8 @@ Recommended Xerath config:
 1. Enable manual cast Q in League (click once to charge, click again to release)
 2. High to very high hitchance
 3. W require center at impact
-4. E usage - High confidence combo 
+4. E usage - High confidence combo
+5. Bind lua orbwalker to spacebar (this can fix buggy spellshooting when pressing spacebar while a hit is resolved) 
 
 How to use: 
 Holding spacebar will shoot W and E 
