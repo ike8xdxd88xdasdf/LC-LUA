@@ -29,8 +29,8 @@ Recommended Xerath config:
 6. If a spell is overshooting (predicting too much), reduce value on prediction slider
 
 How to use Xerath: 
-Holding spacebar will shoot W and E 
-Press Q once and script will auto aim and release Q
-Press R to enter R mode, then hold T (confirm in bindings) when you want to shoot
+1. Holding spacebar will shoot W and E 
+2. Press Q once and script will auto aim and release Q
+3. Press R to enter R mode, then hold T (confirm in bindings) when you want to shoot (use closest to cursor R if target selection has a bug)
 
 
