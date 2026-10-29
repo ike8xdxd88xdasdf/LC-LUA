@@ -1,18 +1,24 @@
-LolCore script beta build - Xerath
+LolCore scripts (beta build) - Xerath, Samira, Senna, Tristana, Yunara
 
 
-Test script for Xerath includes: 
-- orbwalker script with lasthit (not perfect)
-- evade script
-- spellcasting script with dedicated prediction module
-- automatic target selector script with: left click to focus 
 
-Known issues:
-No spell usage for waveclear and missing creep lasthits on push key
-No hourglass prediction
-No summoners other than flash currently implemented
+
 
 To have evade use flash -> Enable: lua evade walking + use flash against level 5 threat -> scroll down in lolcore until you find enemy and their abilities, create priority list (5 = will flash when evade is not possible)
+
+Tristana tip: don't press W while holding spacebar if you want to fully control where you go. 
+
+Be aware: 
+1. Only use updated .core files
+2. Confirm correct keyboard bindings in API tab on each reload (config save coming soon)
+3. Right clicking to do manual movement can counteract evade movement
+4. In champion script settings: DISABLE INPUT CORRECTION AND CUSTOM RESOLUTION FIX
+5. Set input latency allowance to [your ping] + 25. For example my ping is 15, I set input latency allowance to 40
+6. Disable in LolCore - Main: Orbwalker Clicking, Prediction, Evade 
+                      - Hero: Everything
+
+
+
 
 Recommended Xerath config: 
 1. Enable manual cast Q in League (click once to charge, click again to release)
@@ -20,14 +26,11 @@ Recommended Xerath config:
 3. W require center at impact
 4. E usage - High confidence combo
 5. Bind lua orbwalker to spacebar (this can fix buggy spellshooting when pressing spacebar while a hit is resolved) 
+6. If a spell is overshooting (predicting too much), reduce value on prediction slider
 
-How to use: 
+How to use Xerath: 
 Holding spacebar will shoot W and E 
 Press Q once and script will auto aim and release Q
-Press R to enter R mode, then hold T when you want to shoot
-Disable in LolCore - Main: Orbwalker Clicking, Prediction, Evade 
-                   - Hero: Everything
+Press R to enter R mode, then hold T (confirm in bindings) when you want to shoot
 
-Be aware: 
-Right clicking to do manual movement can counteract evade movement
-When Q can't resolve a good hit, it won't shoot. Don't instantly decrease hitchance
+
