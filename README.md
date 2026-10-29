@@ -12,7 +12,7 @@ Be aware:
 1. Only use updated .core files, use all main scripts and 1 champion script
 2. Confirm correct keyboard bindings in API tab on each reload (config save coming soon)
 3. Right clicking to do manual movement can counteract evade movement
-4. In champion script settings: DISABLE INPUT CORRECTION AND CUSTOM RESOLUTION FIX
+4. In champion script settings: DISABLE INPUT CORRECTION AND 1440p RESOLUTION FIX, IF YOUR GAME RESOLOLUTION IS DIFFERENT THAN YOUR MONITOR RESOLUTION, DM
 5. Set input latency allowance to [your ping] + 25. For example my ping is 15, I set input latency allowance to 40
 6. Disable in LolCore - Main: Orbwalker Clicking, Prediction, Evade 
                       - Hero: Everything
