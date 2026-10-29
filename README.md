@@ -16,7 +16,7 @@ Be aware:
 5. Set input latency allowance to [your ping] + 25. For example my ping is 15, I set input latency allowance to 40
 6. Disable in LolCore - Main: Orbwalker Clicking, Prediction, Evade 
                       - Hero: Everything
-
+7. Current farming.orbwalker.core only loads when it's in the 'loaded' scripts folder before booting LolCore. It will disappear after reloading scripts. 
 
 
 
