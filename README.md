@@ -9,7 +9,7 @@ To have evade use flash -> Enable: lua evade walking + use flash against level 5
 Tristana tip: don't press W while holding spacebar if you want to fully control where you go. 
 
 Be aware: 
-1. Only use updated .core files, use all main scripts and 1 champion script
+1. Only use updated .core files, use all main scripts and 1 champion script ALL AT ONCE IN THE LOADED FOLDER, DOUBLE AND TRIPLE CHECK
 2. Confirm correct keyboard bindings in API tab on each reload (config save coming soon)
 3. Right clicking to do manual movement can counteract evade movement
 4. In champion script settings: DISABLE INPUT CORRECTION AND 1440p RESOLUTION FIX, IF YOUR GAME RESOLOLUTION IS DIFFERENT THAN YOUR MONITOR RESOLUTION, DM
