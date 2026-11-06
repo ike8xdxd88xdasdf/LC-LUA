@@ -212,3 +212,5 @@ This is a beta. When something feels off, tell me:
 - what happened.
 
 A clip helps a lot.
+
+<img width="387" height="261" alt="image" src="https://github.com/user-attachments/assets/74371ebd-09fd-45e1-b629-e4ff71bc15ca" />
