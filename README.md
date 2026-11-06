@@ -1,6 +1,6 @@
 # JohnCore v2.1 — LolCore scripts (beta build)
 
-**Ashe · Caitlyn · Ezreal · Jinx · Kai'Sa · Kog'Maw · Lulu · Miss Fortune · Samira · Senna · Sivir · Tristana · Twitch · Xerath · Yunara · Zeri**
+**Ashe · Caitlyn · Jinx · Kai'Sa · Kog'Maw · Lulu · Miss Fortune · Samira · Senna · Sivir · Tristana · Twitch · Xerath · Yunara · Zeri**
 
 One shared core: an orbwalker, evade, prediction, target selector and utility. Every champion script runs on top of it. You get one consistent orbwalker and evade, whichever champion you play.
 
@@ -99,11 +99,6 @@ Champion keys (T, H, W/E) are listed under each champion.
 - **Q isolated shots.** Q is refused with an enemy closer than 400 (slider), unless Q + 1 auto kills.
 - **Automatic lethal R** from at least 1350 distance.
 - **E anti-gapclose.**
-
-### Ezreal
-- **W → Q combo** between autos.
-- **E as evade**, only when walking can't escape (never further under an enemy turret).
-- Harass mana reserve slider.
 
 ### Jinx
 - **Automatic minigun ↔ rockets:**
