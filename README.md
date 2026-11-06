@@ -121,7 +121,7 @@ Champion keys (T, H, W/E) are listed under each champion.
 - **W** only at an enemy who can't move when it lands, or when W (with its Plasma rupture) kills.
 - **Use R for evade:** R to a spot near a Plasma-marked enemy when walking can't escape. It learns your R dash speed from your own R casts.
 
-### Kog'Maw (experimental)
+### Kog'Maw
 - **Q:**
   - automatic Q without a key (hit chance and mana sliders);
   - Q in combo between autos.
@@ -178,7 +178,7 @@ Champion keys (T, H, W/E) are listed under each champion.
 
 ### Xerath
 - **Hold Space:** W and E. W prefers to hit the centre.
-- **Q:** press Q once and the script aims and releases it on an aligned target. It also fires before the charge runs out.
+- **Q:** DISABLE QUICK CAST - press Q once and the script aims and releases it on an aligned target. It also fires before the charge runs out.
 - **R:** press R to enter R mode, then **hold T** to shoot.
   - *Champion / R | Target selection:* target selector, or closest to cursor.
 - **W wave clear** (3+ minions).
