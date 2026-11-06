@@ -5,6 +5,8 @@
 One shared core: an orbwalker, evade, prediction, target selector and utility. Every champion script runs on top of it. You get one consistent orbwalker and evade, whichever champion you play.
 
 ---
+**Scroll to bottom for tutorial on how to install the .core files**
+---
 
 ## Be aware
 
