@@ -31,7 +31,7 @@ One shared core: orbwalker, evade, prediction, and utility.
 
 ## Core features (`main scripts/`)
 - **`johncore_core.core`** — Orbwalker, predicted last-hit & waveclear, target selector, gapcloser library, and shared marksman engine.
-  - `Input | Cursor lock (ms)` (`0–200`, default `0`): brief mouse hold window on casts/inputs before returning to your cursor.
+  - `Input | Cursor lock (ms)` (`0–200`, default `0`): brief mouse hold window on casts/inputs before returning to your cursor. Increase this value if rapid mouse movement makes you miss clicks.
   - `Farm | Clear speed (%)` (`0–100%`, default `0%`): `0%` preserves strict last-hit safety windows; raising toward `100%` reduces wait windows toward full attack-speed pushing while still catching immediate last hits first.
   - `Orbwalk | Safety on top of ping ms` (`0–150`, default `25`): raise slightly if high ping cancels autos.
   - `Target selection`: `Use mouse1 to focus enemy` & `Use priority list`.
