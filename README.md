@@ -2,7 +2,7 @@
 
 Ashe · Caitlyn · Ezreal · Graves · Jinx · Kai'Sa · Kayle · Kindred · Kog'Maw · Lulu · Master Yi · Miss Fortune · Samira · Senna · Sivir · Tristana · Twisted Fate · Twitch · Xerath · Yunara · Zeri · + JohnWalker (universal)
 
-One shared core: orbwalker, evade, prediction, target selection, and utility. Every champion script runs on top of it so orbwalking, last-hitting, and dodging feel consistent across every champion.
+One shared core: orbwalker, evade, prediction, and utility. 
 
 ---
 **Scroll to the bottom for installation steps for the `.core` files.**
