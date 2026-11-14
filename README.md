@@ -1,218 +1,80 @@
-# JohnCore v2.1 — LolCore scripts (beta build)
+# JohnCore v2.3 — LoLcore scripts
 
-**Ashe · Caitlyn · Jinx · Kai'Sa · Kog'Maw · Lulu · Miss Fortune · Samira · Senna · Sivir · Tristana · Twitch · Xerath · Yunara · Zeri**
+Ashe · Caitlyn · Ezreal · Graves · Jinx · Kai'Sa · Kayle · Kindred · Kog'Maw · Lulu · Master Yi · Miss Fortune · Samira · Senna · Sivir · Tristana · Twisted Fate · Twitch · Xerath · Yunara · Zeri · + JohnWalker (universal)
 
-One shared core: an orbwalker, evade, prediction, target selector and utility. Every champion script runs on top of it. You get one consistent orbwalker and evade, whichever champion you play.
+One shared core: orbwalker, evade, prediction, target selection, and utility. Every champion script runs on top of it so orbwalking, last-hitting, and dodging feel consistent across every champion.
 
 ---
-**Scroll to bottom for tutorial on how to install the .core files**
+**Scroll to the bottom for installation steps for the `.core` files.**
 ---
 
 ## Be aware
-
-1. **Load the 5 core scripts plus 1 champion script, all at once, in the loaded folder.** Use only the files from the latest release. Double and triple check before starting LolCore.
-   - Core: `farming_orbwalker`, `target_selector`, `evade`, `prediction`, `utility`
-   - Champion: the one you play, for example `jinx` or `xerath_1`
-2. **Check your key bindings in the API tab on every reload** (config saving is coming soon).
-3. **In LolCore, turn off:**
-   - Main: Orbwalker Clicking, Prediction and Evade.
-   - Hero: everything.
-   **In LolCore, turn on:**
-   - Target Mode -> priority list (We can prioritize targets, our target_selector works together with this. If you don't want priority list, leave all on priority 3 = default)
-4. **Right-clicking to move by hand can work against evade.**
-5. **Autos getting cancelled?** Raise `Orbwalk | Safety on top of ping ms` (default 25). Your ping is read automatically; this is only the extra safety on top.
-6. **Game resolution different from your monitor resolution?** Issues might occur. 
-7. **Game resolution above 1080p?** Issues might occur.
-8. **Keep mouse speed in LoL at 50 for accurate aiming in LolCore**
+- Load all **4** files from `main scripts/` (`johncore_core.core`, `johncore_evade.core`, `johncore_prediction.core`, `johncore_utility.core`) plus **1** champion file from `champ scripts/` (`johncore_<champion>.core`, or `johnwalker_champ.core` for any champion without a dedicated script).
+- **Upgrading from v2.1:** Delete all old v2.1 `.core` files (`farming_orbwalker.core`, `target_selector.core`, `evade.core`, `prediction.core`, `utility.core`, and old unprefixed champion `.core` files). Target selection is now built into `johncore_core.core`. Saved menu settings reset once with the new `johncore_*` script names.
+- **In LoLcore settings:**
+  - Turn built-in **Evade OFF** (`Evade | Lua evade walking` handles dodging).
+  - In **`johncore_core`**, tick **`Use API for onCombo`**, **`Use API for onOrbwalk`**, and **`Use API for onCustomLasthit`** (or disable LoLcore's built-in orbwalker) so only JohnCore issues orbwalk and last-hit inputs.
 
 ---
 
 ## Default keys
-
-| Key | What it does |
-|---|---|
-| **Space** | Orbwalk and fight (autos and spells) |
-| **C** | Last hit |
-| **V** | Wave clear / push |
-| **Harass** | Unbound, set it in the menu |
-| **Left click (mouse1)** on an enemy champion | Focus that enemy. Left click elsewhere to clear it |
-| **Toggle evade walking** | Unbound, set it in the menu |
-
-Champion keys (T, H, W/E) are listed under each champion.
+| Action | Key | Notes |
+| --- | --- | --- |
+| Orbwalk / Combo | `Space` | Attack, kite, and run champion combat spells |
+| Last-hit | `C` | Last-hit minions cleanly |
+| Clear (Wave & Jungle) | `V` | Waveclear and jungle clear |
+| Focus enemy target | `Mouse1` | Left-click to prioritize an enemy (`Target selection \| Use mouse1 to focus enemy`) |
+| Harass | Unbound (`0`) | Optional toggle/hold key in `johncore_core` |
+| Toggle evade walking | Unbound (`0`) | Optional quick toggle in `johncore_evade` |
 
 ---
 
-## Core features (every champion)
-
-### Orbwalker
-- **Moves the moment the attack windup ends**, so it doesn't stand still after an auto or cancel one.
-- **Keeps auto-attacking while rooted or silenced.**
-- **Self-buffs never delay an auto** (Tristana Q, Yunara Q, Kog'Maw W, Jinx swaps).
-- **Weaves spells between autos**, and walks first when a spell would make you stand still.
-- **Farming:**
-  - Last hit (C) and push (V), with health prediction.
-  - It doesn't steal a minion your spell is already killing.
-  - Jungle monsters are cleared without stalling.
-
-### Evade 
-- **Walks out of skillshots** from a custom dodge list. *Lua evade walking* is **on** by default; turn off the game's own evade first.
-- **Ignores spells that can't reach you.** A Thresh, Blitz or Morgana Q blocked by a minion or champion in between is not dodged.
-- **Uses a dash** (Ezreal E, Zeri E, Kai'Sa R, etc) when walking can't escape.
-- **Flash:** allowed for level 5 spells, with the *Allow Flash for enemy threat level 5* box.
-
-**How to set up evade with Flash:**
-1. Enable *Lua evade walking* and *Allow Flash for enemy threat level 5*.
-2. Scroll down in LolCore until you find **Spell threat | (enemy) (spell)**.
-3. Set each spell's level:
-   - **1:** do not dodge.
-   - **2–4:** walk.
-   - **5:** Flash when walking is not possible.
-
-*Dodge only the most dangerous spells* limits evade to threat 4–5. We used common sense to rank spells by threat, you can trust us in this.
-
-### Target selector
-- **Mouse1 focus is a hard lock:** your spells and autos stay on the focused enemy.
-  - When the focus is out of range for an auto or a spell, that auto or spell goes to another champion.
-  - Turn it off with *Use mouse1 to focus enemy*.
-- **Priority list:** every champion has a built-in priority, with carries first. *Use priority list* turns it on or off.
-- **Picks the fastest kill**, and spells prefer your attack target.
-
-### Prediction
-- Just werks, or not (send me clips of misses)
-
-### Utility
-- **Auto Smite** (epic monsters only by default).
+## Core features (`main scripts/`)
+- **`johncore_core.core`** — Orbwalker, predicted last-hit & waveclear, target selector, gapcloser library, and shared marksman engine.
+  - `Input | Cursor lock (ms)` (`0–200`, default `0`): brief mouse hold window on casts/inputs before returning to your cursor.
+  - `Farm | Clear speed (%)` (`0–100%`, default `0%`): `0%` preserves strict last-hit safety windows; raising toward `100%` reduces wait windows toward full attack-speed pushing while still catching immediate last hits first.
+  - `Orbwalk | Safety on top of ping ms` (`0–150`, default `25`): raise slightly if high ping cancels autos.
+  - `Target selection`: `Use mouse1 to focus enemy` & `Use priority list`.
+- **`johncore_evade.core`** — Path-aware skillshot dodging (`Lua evade walking`, `Dodge only the most dangerous spells`, optional `Allow Flash for enemy threat level 5`).
+- **`johncore_prediction.core`** — Shared linear/circular/dash prediction engine and damage modeling.
+- **`johncore_utility.core`** — Auto Smite (`Dragon`, `Baron`, `Rift Herald`, optional `Void grubs`, `Scuttle Crab`, jungle buffs/camps, `Every monster while an enemy is in range`, `Predict my own hits`). Auto Smite stays active even if the general Utility toggle is turned off.
 
 ---
 
-## Champions
+## Champions (`champ scripts/`)
 
-### Ashe
-- **Q and W** in combat.
-- **Anti-gapclose R:** R on an enemy whose dash ends within 500 of you (range slider).
-- **E for vision:** automatic in combo, when an enemy you are fighting walks out of vision and no ward of yours covers the spot.
-- **T:** manual R, predicted at the enemy nearest your cursor.
+### Universal controller
+- **`johnwalker_champ.core`** — Works on any champion without a dedicated script. Provides shared orbwalking, last-hitting, clearing, target selection, evade, and utility (no champion spells). Automatically yields whenever a dedicated `johncore_<champion>.core` script is loaded.
 
-### Caitlyn
-- **Full E → W → Q combo:**
-  - E, then the trap goes under their feet;
-  - instant W on immobilized targets;
-  - Q follows.
-- **Q isolated shots.** Q is refused with an enemy closer than 400 (slider), unless Q + 1 auto kills.
-- **Automatic lethal R** from at least 1350 distance.
-- **E anti-gapclose.**
-
-### Jinx
-- **Automatic minigun ↔ rockets:**
-  - rockets when an enemy champion is inside rocket range (+125 in combo), from minigun range minus 100;
-  - back to minigun at minigun range minus 150;
-  - rockets for splash on 2+ grouped champions;
-  - farm modes never swap.
-- **W:**
-  - poke on Space when the enemy is outside auto range;
-  - automatic W on a crowd-controlled enemy outside auto range.
-- **E:**
-  - automatic E on crowd-controlled enemies;
-  - anti-gapclose E in combo, on an enemy within 300 (slider) or dashing at you.
-  - The chompers go in front of them, further when they walk at you.
-
-### Kai'Sa
-- **Q** in combat.
-- **W** only at an enemy who can't move when it lands, or when W (with its Plasma rupture) kills.
-- **Use R for evade:** R to a spot near a Plasma-marked enemy when walking can't escape. It learns your R dash speed from your own R casts.
-
-### Kog'Maw
-- **Q:**
-  - automatic Q without a key (hit chance and mana sliders);
-  - Q in combo between autos.
-- **W** in combo when in range.
-- **R:**
-  - automatic R for kills outside auto range (hit chance and safety margin sliders);
-  - R right after Guardian Angel or Zhonya's.
-
-### Lulu
-- **Superman key (T, hold):** W, then E, on your superman ally. Pick the ally with the *Superman target* boxes.
-- **Semi-manual W / E (W / E keys):** the script picks the ally. Use them with your cursor on empty ground, because the game also gets the key.
-- **Automatic:**
-  - **E** shields allies and you when damage is about to land (threat-level slider);
-  - **W** on an allied Kog'Maw when he uses his W;
-  - **R** knocks up enemies that dash in, or saves a low ally (below 20%);
-  - *Allow R on yourself*; optional R on enemies that walk in.
-
-### Miss Fortune
-- **Q, W and E** in combat, timed between autos.
-
-### Samira
-- **Full combo chain:** W spin → E through the target → Q → R at S grade.
-- **W blocks incoming projectiles.**
-- **E gap close** when the target is out of auto range.
-- **Auto Q** on enemy champions, no key needed.
-
-### Senna
-- **Auto collects souls** (orb keys only).
-- **Q:**
-  - in combo and harass;
-  - through aligned units beyond your target's range;
-  - heals allies in combat (option).
-- **H:** Q heal key.
-- **W** prediction with collision.
-- **R:** predicted execute during combat (damage margin slider). Optionally also without the combat key.
-
-### Sivir
-- **Q and W** in combat.
-- **Automatic E spell shield** on dangerous spells (the evade list) that would really hit you, instead of dodging them. It takes blocking minions into account.
-- Harass mana reserve slider.
-
-### Tristana
-- **Enable Q:** Q never delays an auto or the move after it.
-- **Enable E:** E bombs your attack target.
-- **R:**
-  - lethal execute with bomb + follow-up auto;
-  - **Anti-gapclose R** on enemies dashing in.
-- **W is fully manual**, so you decide where you jump.
-
-### Twitch
-- **W and E** in combat.
-- **E execute** during combat.
-- Harass mana reserve slider.
-
-### Xerath
-- **Hold Space:** W and E. W prefers to hit the centre.
-- **Q:** DISABLE QUICK CAST - press Q once and the script aims and releases it on an aligned target. It also fires before the charge runs out.
-- **R:** press R to enter R mode, then **hold T** to shoot.
-  - *Champion / R | Target selection:* target selector, or closest to cursor.
-- **W wave clear** (3+ minions).
-
-**Recommended:**
-1. In League, enable **manual cast Q** (click once to charge, click again to release).
-2. Bind the Lua orbwalker to **Space**. This can fix buggy spell shooting when Space is pressed while a hit is resolving.
-3. If Q overshoots (predicts too far), lower *Q Prediction %*.
-
-### Yunara
-- **Q:** Cultivation of Spirit in attack range.
-- **W:** predicted between attacks (prediction 50%, slider).
-- **E:** Kanmei Steps while moving and fleeing.
-- **R:** Transcend in attack range on Space.
-- **Evade:** R + E for level 5 spells when Flash is down.
-- **Flee key:** unbound, set it in the menu.
-
-### Zeri
-- **Q fires on cooldown,** also during R (chain lightning ignores minions in the way).
-- **Farming:** Q in last hit and push. Autos only finish kills.
-- **Autos at champions only when charged.** Charged zaps are weaved in attack range.
-- **Q on turrets** in push mode.
-- **E as evade** when walking can't escape.
-- **H:** semi-manual W (predicted target). Direct W in combat is off by default.
+### Dedicated champion scripts
+- **Ashe** (`johncore_ashe.core`): `Q` & `W` in combat, `Anti-gapclose R` (with range slider), manual predicted `R` near cursor (`T`).
+- **Caitlyn** (`johncore_caitlyn.core`): Isolated `Q` (with close-enemy refusal slider), predictive `W` traps + instant `W` on immobilized targets, `E` combat & anti-gapclose, `E W Auto Q Auto` combo sequence, `Q` waveclear (preserve CS), automatic lethal `R` (`1350+` min distance).
+- **Ezreal** (`johncore_ezreal.core`): Predicted `Q` & `W` with timed `W -> Q` follow-up, harass mana reserve slider, `E` evade escape when walking cannot dodge.
+- **Graves** (`johncore_graves.core`): `Q` combat (+ optional fast wall-return filter) & jungle `Q`, `W` on close/casting/CC targets or during reload, `E` reload toward cursor in combat/lane clear + Evade `E`, Dark Harvest `R` execute calculation, semi-manual `E` (`A`) and semi-manual `R` (`T`).
+- **Jinx** (`johncore_jinx.core`): Automatic Minigun / Fishbones switching, Auto `E` on CC, `E` anti-gapclose (with range slider), Auto `W` on CC & `W` poke outside AA range on `Space`.
+- **Kai'Sa** (`johncore_kaisa.core`): Combat abilities + `Use R for evade` (escape landing near a Plasma-marked enemy).
+- **Kayle** (`johncore_kayle.core`): `Q` in combo/harass, `E` auto-reset after attack, `E` execute, `E` last-hit & jungle clear, `W` chase/kiting & ally/self heal sliders, `R` save under HP % (optionally self-only).
+- **Kindred** (`johncore_kindred.core`): `Q` weave after windup toward cursor + gapclose + clear + Evade `Q` dodge, `W` uptime, `E` outside windup, `R` self/ally save, stay inside `R`, hold autos/skills under health floor until `R` ends for burst, jungle clear `Q`/`W`/`E` (`V`).
+- **Kog'Maw** (`johncore_kogmaw.core`): Combo `Q` & `W`, standalone `AUTO Q` (no key), `R` lethal execute outside AA range, `R` on CC (`Space`), `R` under HP % / non-lethal outside AA range, post-Zhonya/GA `R` timing, blended Pred3 + JohnCore prediction.
+- **Lulu** (`johncore_lulu.core`): `Q` combat (`Space`), Auto `E` shield for allies & self (configurable threat threshold + `Space`-only toggle), Auto `W` on allied Kog'Maw `W`, `R` anti-gapclose knockup & low-HP save, Superman key (`T` — `W+E`), semi-manual `W` (`W`) & `E` (`E`) on ally.
+- **Master Yi** (`johncore_masteryi.core`): `Q` gapclose on dashing enemies, `Q` dodge dangerous spells (`4+`) & turret shots, jungle `Q` after auto, `W` auto reset (min saved ms slider) & `W` mitigation for hard spells/turret shots, `E` combo & jungle clear, `R` dangerous-only evade, semi-manual `Q` near cursor (`T`).
+- **Miss Fortune** (`johncore_missfortune.core`): `Q`, `W`, and `E` in combat.
+- **Samira** (`johncore_samira.core`): `Q` combat, Auto `Q` on enemy champions, `Q` waveclear (preserve CS), `W` spin & projectile block, `E` combo chain & gapclose, `R` at S grade in range, melee stick-to-target magnet (`< 200` range).
+- **Senna** (`johncore_senna.core`): `Q` combat & extended `Q` through aligned units, `Q` ally heal toggle, manual `Q` heal key (`H`), `W` prediction with collision, predicted `R` execute (optional idle execute & margin slider), auto soul collection on orb keys.
+- **Sivir** (`johncore_sivir.core`): Combat spells + `E` spell shield on dangerous spells instead of dodging.
+- **Tristana** (`johncore_tristana.core`): `Q` Rapid Fire in combat, `E` bomb in attack range, `R` lethal execute factoring bomb stacks + follow-up auto (with margin & overshoot sliders), `Anti-gapclose R`.
+- **Twisted Fate** (`johncore_twistedfate.core`): Auto Gold card in combo (`Space`), auto Gold card on `R` (Destiny) before teleport, semi-manual card keys — Gold (`W`), Red (`T`), Blue (`E`), `Q` on stunned/slowed targets.
+- **Twitch** (`johncore_twitch.core`): `W` & `E` in combat, `E` execute, harass mana reserve slider.
+- **Xerath** (`johncore_xerath.core`): Manual `Q` charge release on aligned targets (+ `Prediction %` & charge deadline fallback), predictive center `W` + lane waveclear `W` (`minimum minions hit`), observed dash prediction (`E`), Artillery `R` key (`T`) with `Target selector` / `Closest to cursor` mode.
+- **Yunara** (`johncore_yunara.core`): `Q` Cultivation of Spirit in range, predicted `W` between autos (`Prediction percent` slider), `E` Kanmei Steps while moving & fleeing, `R` Transcend on `Space`, `Evade` `R + E` fallback for level-5 danger, configurable Flee key.
+- **Zeri** (`johncore_zeri.core`): Semi-manual predicted `W` (`H`), optional direct `W` in combat, harass mana reserve slider, `E` evade escape when walking cannot dodge, `Q` on turrets in push mode (`V`), `Q` weaving & charged attack handling.
 
 ---
 
-## Feedback
+## How to install the `.core` files
+1. Download all files from `main scripts/` and the champion file(s) you want from `champ scripts/`.
+2. Remove any old v2.1 `.core` files (`farming_orbwalker.core`, `target_selector.core`, `evade.core`, `prediction.core`, `utility.core`, or old unprefixed champion `.core` files).
+3. Copy the 4 files from `main scripts/` and your chosen `champ scripts/*.core` file(s) into your LoLcore scripts folder and load them in LoLcore.
+4. Disable LoLcore's built-in **Evade**, and inside **`johncore_core`** tick **`Use API for onCombo`**, **`Use API for onOrbwalk`**, and **`Use API for onCustomLasthit`**.
 
-This is a beta. When something feels off, tell me:
-- the champion;
-- what you were doing (combo, farming, evading);
-- what happened.
-
-A clip helps a lot.
-
-<img width="387" height="261" alt="image" src="https://github.com/user-attachments/assets/74371ebd-09fd-45e1-b629-e4ff71bc15ca" />
+<img width="387" height="261" alt="image" src="https://github.com/user-attachments/assets/74371ebd-09fd-45e1-b850-b2f5f93caae5" />
