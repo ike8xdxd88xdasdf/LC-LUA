@@ -2,11 +2,11 @@
 
 Ashe · Caitlyn · Corki · Ezreal · Graves · Jinx · Kai'Sa · Katarina · Kayle · Kindred · Kog'Maw · Lulu · Master Yi · Miss Fortune · Orianna · Samira · Senna · Sivir · Tristana · Twisted Fate · Twitch · Viktor · Xerath · Yunara · Zeri · + JohnWalker (universal)
 
-One core. Orbwalker, evade, prediction and utility, built to work as one.
-You hold Space. It handles the rest.
+Orbwalker, TobyEvade™, prediction and utility.
+
 
 ---
-**Installation is at the bottom. Read the rest first, it's worth it.**
+**Installation is at the bottom. Read the rest first, or you will not get support.**
 ---
 
 ## Before you load
