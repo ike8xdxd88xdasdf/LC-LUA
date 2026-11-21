@@ -8,7 +8,7 @@ One shared core: orbwalker, evade, prediction, and utility.
 **Scroll to the bottom for installation steps for the `.core` files.**
 ---
 
-## Be aware - DISABLE MAOKAI R, APHELIOS Q, RELL W IN EVADE
+## Be aware - DISABLE MAOKAI R, RELL W IN EVADE (DODGE THEM MANUALLY)
 - Load all **4** files from `main scripts/` (`johncore_core.core`, `johncore_evade.core`, `johncore_prediction.core`, `johncore_utility.core`) plus **1** champion file from `champ scripts/` (`johncore_<champion>.core`, or `johnwalker_champ.core` for any champion without a dedicated script).
 - **Upgrading from v2.1:** Delete all old v2.1 `.core` files (`farming_orbwalker.core`, `target_selector.core`, `evade.core`, `prediction.core`, `utility.core`, and old unprefixed champion `.core` files). Target selection is now built into `johncore_core.core`. Saved menu settings reset once with the new `johncore_*` script names.
 - **In LoLcore settings:**
